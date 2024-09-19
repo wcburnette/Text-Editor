@@ -4,12 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start:dev": "",
-    "start": "",
-    "server": "",
-    "build": "",
-    "install": "",
-    "client": ""
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/server.js --ignore client",
+    "client": "webpack --config client/webpack.config.js",
+    "build": "webpack --config client/webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +17,11 @@
     "if-env": "^1.0.4"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "webpack-pwa-manifest": "^4.3.0"
   }
 }
